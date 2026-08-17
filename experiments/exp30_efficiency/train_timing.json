@@ -1,0 +1,8 @@
+{
+  "train_wall_s": 2.723614300000918,
+  "n_train_rows": 9597,
+  "n_train_scenarios": 988,
+  "n_features": 35,
+  "n_members": 5,
+  "note": "one-time offline training cost; \u4e0e\u5728\u7ebf\u63a8\u7406\u6210\u672c\u5206\u79bb"
+}

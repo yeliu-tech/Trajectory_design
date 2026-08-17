@@ -1,0 +1,92 @@
+{
+  "M0": {
+    "dimension": 25,
+    "pairwise_accuracy": 0.793283671155491,
+    "pairwise_accuracy_ci": [
+      0.7809473185945968,
+      0.805392976986199
+    ],
+    "top1_regret_mean": 12.126454640617569,
+    "top1_regret_mean_ci": [
+      9.52624757605737,
+      15.334846652070254
+    ],
+    "top1_regret_median": 0.42543639853723025,
+    "top3_recall": 0.8485185185185183
+  },
+  "BG": {
+    "dimension": 51,
+    "pairwise_accuracy": 0.7791259721918325,
+    "pairwise_accuracy_ci": [
+      0.7666832142650796,
+      0.7921136518984765
+    ],
+    "top1_regret_mean": 15.134347767753486,
+    "top1_regret_mean_ci": [
+      11.913057306851023,
+      18.558678971935187
+    ],
+    "top1_regret_median": 0.5700631279993508,
+    "top3_recall": 0.8376851851851851
+  },
+  "BR": {
+    "dimension": 30,
+    "pairwise_accuracy": 0.800961748851272,
+    "pairwise_accuracy_ci": [
+      0.7886762091203429,
+      0.8127527803152577
+    ],
+    "top1_regret_mean": 10.919212514849532,
+    "top1_regret_mean_ci": [
+      8.388602703932362,
+      13.89202786973579
+    ],
+    "top1_regret_median": 0.30515994685665926,
+    "top3_recall": 0.8532407407407405
+  },
+  "BT": {
+    "dimension": 35,
+    "pairwise_accuracy": 0.8192717761024805,
+    "pairwise_accuracy_ci": [
+      0.8077008284942444,
+      0.8302200928398239
+    ],
+    "top1_regret_mean": 8.534804627749784,
+    "top1_regret_mean_ci": [
+      6.948718799625345,
+      10.166252618145576
+    ],
+    "top1_regret_median": 0.20510366069984798,
+    "top3_recall": 0.8628703703703703
+  },
+  "BS": {
+    "dimension": 29,
+    "pairwise_accuracy": 0.7926471465796749,
+    "pairwise_accuracy_ci": [
+      0.7800247003260333,
+      0.8046913487168667
+    ],
+    "top1_regret_mean": 11.598622335476502,
+    "top1_regret_mean_ci": [
+      9.206042517482949,
+      14.599735496739418
+    ],
+    "top1_regret_median": 0.46513118836469225,
+    "top3_recall": 0.8476851851851851
+  },
+  "BFULL": {
+    "dimension": 70,
+    "pairwise_accuracy": 0.8144630318461202,
+    "pairwise_accuracy_ci": [
+      0.8032072689688904,
+      0.825299939527743
+    ],
+    "top1_regret_mean": 11.802437192086785,
+    "top1_regret_mean_ci": [
+      9.455548897531411,
+      14.370063877737739
+    ],
+    "top1_regret_median": 0.22862005264602603,
+    "top3_recall": 0.8582407407407407
+  }
+}

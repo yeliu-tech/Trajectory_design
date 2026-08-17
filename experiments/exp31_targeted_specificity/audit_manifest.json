@@ -1,0 +1,117 @@
+{
+  "created": "2026-08-17 13:04:14",
+  "experiment": "exp31_targeted_correction_specificity",
+  "nature": "POST-SELECTION specificity audit（T 已由 exp21 冻结 performance-complexity 规则选定；本实验不改选择规则）",
+  "groups": {
+    "G": {
+      "key": "G_geometry_evolution",
+      "dim": 26,
+      "features": [
+        "integrated_dogleg",
+        "n_seg_used",
+        "min_seg_len",
+        "mean_seg_len",
+        "hist_last_seg_length",
+        "hist_last_build_rate",
+        "hist_last_turn_rate",
+        "hist_mean_build_rate",
+        "hist_mean_turn_rate",
+        "hist_slope_seg_length",
+        "hist_slope_build_rate",
+        "hist_slope_turn_rate",
+        "hist_sum_seg_length",
+        "hist_sum_build_rate",
+        "hist_sum_turn_rate",
+        "hist_sum_abs_build_rate",
+        "hist_sum_abs_turn_rate",
+        "hist_inc_mean",
+        "hist_inc_delta",
+        "hist_azi_mean",
+        "hist_azi_delta",
+        "hist_azi_cum_abs",
+        "hist_dls_mean",
+        "hist_dls_last",
+        "hist_dls_max_jump",
+        "hist_path_tortuosity"
+      ]
+    },
+    "R": {
+      "key": "R_design_resource",
+      "dim": 5,
+      "features": [
+        "md",
+        "required_turn_arc_deg",
+        "min_md_for_turn",
+        "md_slack",
+        "tvd_ratio"
+      ]
+    },
+    "T": {
+      "key": "T_target_approach",
+      "dim": 10,
+      "features": [
+        "bearing_rel_sin",
+        "bearing_rel_cos",
+        "off_target_angle_deg",
+        "t1_dx",
+        "t1_dy",
+        "t1_dz",
+        "t1_dist",
+        "off_target1_angle_deg",
+        "prefix_t1_min_ell",
+        "prefix_t1_passed"
+      ]
+    },
+    "S": {
+      "key": "S_safety_corridor",
+      "dim": 4,
+      "features": [
+        "prefix_min_center_dist",
+        "hist_sf_mean",
+        "hist_sf_last",
+        "hist_sf_slope_per_1000m"
+      ]
+    }
+  },
+  "t_cols_match_exp29": true,
+  "anchors": {
+    "n_pairs": 6593,
+    "median_dJ_over_std": 0.01253025576543161,
+    "pairs_match_exp29_csv": true
+  },
+  "nonfinite_cells_GR_S": {
+    "G": 0,
+    "R": 0,
+    "S": 0
+  },
+  "frozen_thresholds": {
+    "hi_cut": 0.5,
+    "lo_cut": 0.25,
+    "burden_cut": 0.5,
+    "burden_strata": "val burden 四分位 low=Q1/mid=Q2-Q3/high=Q4 (exp24)"
+  },
+  "reused_modules": {
+    "pair_pipeline": "exp19_aliasing_audit.build_within_pairs",
+    "distance_stats": "exp29_pair_separation helpers",
+    "train": "exp2_train_abc.train_ensemble (HGBR 5-member, max_iter=300, seed=2024)",
+    "eval": "exp21/exp24 val 协议 (build_cell_table + cell_selection_table, β=0)",
+    "frozen_models": [
+      "models/exp21/model_m0.joblib",
+      "models/exp21/model_m1.joblib",
+      "models/exp21/model_m4.joblib"
+    ]
+  },
+  "new_models": [
+    "models/exp31/model_bg.joblib (M0+G, 51D)",
+    "models/exp31/model_br.joblib (M0+R, 30D)",
+    "models/exp31/model_bs.joblib (M0+S, 29D)"
+  ],
+  "no_changes_to": [
+    "M1 选择规则",
+    "train/val split",
+    "J* 标签",
+    "matched pairs",
+    "HGBR 超参",
+    "已有实验结果"
+  ]
+}

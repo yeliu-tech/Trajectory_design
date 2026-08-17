@@ -1,0 +1,26 @@
+{
+  "experiment": "exp30_candidate_efficiency",
+  "created": "2026-08-17 14:59:51",
+  "smoke": false,
+  "environment": {
+    "python": "3.10.11",
+    "sklearn": "1.7.2",
+    "platform": "Windows-10-10.0.22631-SP0",
+    "cpu_count": 24
+  },
+  "seeds": {
+    "global": 2024,
+    "bootstrap": 2024,
+    "random_K": 2024,
+    "n_boot": 1000
+  },
+  "parallelism": "direct completion: sequential (workers=1); HGBR inference/training: single process, HistGB internal OpenMP threads",
+  "frozen_inputs": {
+    "exp25_val_pool_predictions.csv": "5d3a8d57e19c6f88e38f3d12d91a2fa0473364fbe808693dd74e8f54aa2505a1",
+    "exp28_val_pool_predictions_m0.csv": "4fdace7c2d9946e18f95525cf7d22a131024bdb91a4074d34a65aca191319b8a",
+    "model_m0.joblib": "1e93c4b2af36b201c1fe3c9ad85b0a17f12e180db008ab1e53a6bcdbfdbb8fe8",
+    "model_m1.joblib": "c3ca6bb3c0c4f4dd7e4f5b6f0a398f47ef10a2f97347d824d371e2fe285c2b9a"
+  },
+  "subset_rule": "18 val scenarios (6 difficulty tiers × 3 scenarios: dual{moderate,near-boundary,hard} + retrain{easy,moderate,hard}) × steps 1-8 × label-median/q75 picks = 288 picks, 270 unique prefixes (median/q75 picks coincide for 18 prefixes); deterministic, no HGBR-error selection; step-9 complete trajectories excluded (their \"completion\" degenerates to a single self-evaluation in the frozen production protocol)",
+  "direct_protocol": "hr_completion_oracle.evaluate_prefix, nested CRN, budget_split(200/400), content seed salt='hr_exp2'; production expected = T200 + p_double×T400, p_double from production tier counts"
+}

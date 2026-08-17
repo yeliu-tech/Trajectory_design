@@ -1,0 +1,57 @@
+{
+  "n_candidates": 270,
+  "n_scenarios": 18,
+  "p_double_production": 0.1167935100777787,
+  "p_double_source": "data/checkpoints/exp2_labels.csv 档位行数 2793/23914（仅用计数，未用其计时）",
+  "direct_200": {
+    "mean_s": 18.66582759259259,
+    "median_s": 16.521250000000002,
+    "iqr_s": [
+      13.594850000000001,
+      21.814025
+    ],
+    "p90_s": 27.769309999999997,
+    "mean_evals": 218.36296296296297
+  },
+  "direct_400": {
+    "mean_s": 35.69090388888889,
+    "median_s": 31.3297,
+    "iqr_s": [
+      25.669325,
+      42.3217375
+    ],
+    "p90_s": 52.57384999999999,
+    "mean_evals": 400.4148148148148
+  },
+  "direct_production_expected": {
+    "mean_s": 22.834293535624568,
+    "median_s": 20.405732522789997,
+    "p90_s": 34.25649311365728
+  },
+  "surrogate_m1": {
+    "feature_median_ms": 13.360049999846451,
+    "inference_median_ms": 11.4942000000156,
+    "total_median_ms": 24.918625000282148
+  },
+  "surrogate_m0": {
+    "total_median_ms": 24.93717500010455
+  },
+  "speedup_m1": {
+    "median": 789.7783845659808,
+    "median_ci95": [
+      735.0727076528835,
+      853.8445935446538
+    ],
+    "geometric_mean": 824.9604161898185,
+    "geometric_mean_ci95": [
+      757.1472551751579,
+      899.2995295001391
+    ],
+    "bootstrap": "scenario-cluster, B=1000, seed=2024"
+  },
+  "timing_variability_audit": {
+    "n_prefixes": 18,
+    "reps": 3,
+    "median_cv": 0.05540986018347267
+  }
+}

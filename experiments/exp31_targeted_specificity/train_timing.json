@@ -1,0 +1,14 @@
+{
+  "BG": {
+    "n_features": 51,
+    "train_sec": 8.115489482879639
+  },
+  "BR": {
+    "n_features": 30,
+    "train_sec": 4.834825277328491
+  },
+  "BS": {
+    "n_features": 29,
+    "train_sec": 6.050165891647339
+  }
+}

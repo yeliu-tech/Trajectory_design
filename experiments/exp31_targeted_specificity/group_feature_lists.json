@@ -1,0 +1,55 @@
+{
+  "G": [
+    "integrated_dogleg",
+    "n_seg_used",
+    "min_seg_len",
+    "mean_seg_len",
+    "hist_last_seg_length",
+    "hist_last_build_rate",
+    "hist_last_turn_rate",
+    "hist_mean_build_rate",
+    "hist_mean_turn_rate",
+    "hist_slope_seg_length",
+    "hist_slope_build_rate",
+    "hist_slope_turn_rate",
+    "hist_sum_seg_length",
+    "hist_sum_build_rate",
+    "hist_sum_turn_rate",
+    "hist_sum_abs_build_rate",
+    "hist_sum_abs_turn_rate",
+    "hist_inc_mean",
+    "hist_inc_delta",
+    "hist_azi_mean",
+    "hist_azi_delta",
+    "hist_azi_cum_abs",
+    "hist_dls_mean",
+    "hist_dls_last",
+    "hist_dls_max_jump",
+    "hist_path_tortuosity"
+  ],
+  "R": [
+    "md",
+    "required_turn_arc_deg",
+    "min_md_for_turn",
+    "md_slack",
+    "tvd_ratio"
+  ],
+  "T": [
+    "bearing_rel_sin",
+    "bearing_rel_cos",
+    "off_target_angle_deg",
+    "t1_dx",
+    "t1_dy",
+    "t1_dz",
+    "t1_dist",
+    "off_target1_angle_deg",
+    "prefix_t1_min_ell",
+    "prefix_t1_passed"
+  ],
+  "S": [
+    "prefix_min_center_dist",
+    "hist_sf_mean",
+    "hist_sf_last",
+    "hist_sf_slope_per_1000m"
+  ]
+}
