@@ -24,7 +24,7 @@ New evidence: on the diagnosed matched pairs, fullT improves pair ordering over 
 
 Safe sentence: "The ranking benefit of the augmented state replicates across three regression families (HGBR, ExtraTrees, MLP; Δ pairwise accuracy +0.0263 / +0.0115 / +0.0225, all 95% CIs excluding zero)."
 
-Mandatory honesty: "The mean top-1 regret improvement is reproduced under both tree ensembles but reverses under the small MLP (−2.33 [−4.75, −0.29]), where the median regret nonetheless improves — the top-1 decision benefit is therefore learner-dependent, driven by tail behaviour." Do not write "not confined to HGBR" without this qualification.
+Mandatory honesty: "The mean top-1 regret improvement is reproduced under both tree ensembles but reverses under the small MLP (−2.33 [−4.75, −0.29]), where the median regret nonetheless improves — the top-1 decision benefit is therefore learner-dependent, driven by tail behaviour." Do not write "not confined to HGBR" without this qualification. Additional caveat: all 10 MLP members stopped at the library-default max_iter=200 unconverged (`mlp_convergence_diagnostics.json`); the reversal characterises an undertrained reference and must not be generalised to MLPs as a class.
 
 ### 5. Label-noise robustness of the diagnosis — RESOLVED (Exp D: persists)
 

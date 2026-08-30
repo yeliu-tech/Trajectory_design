@@ -13,8 +13,13 @@
 贪心不重复最近邻；阈值 = 组内候选对距离中位数 × {0.25, 0.5, 1.0}；
 scenario-cluster bootstrap（B=1000, seed=2024）。
 
-**有效维度说明（重要）**：M0 25 列中 k_prefix + 10 个场景常数在同 (uid,k) 组内恒定，
-标准化后零贡献；有效匹配维 = 15 个即时量。25D 相对 10D 的新增信息是
+**有效维度说明（重要）**：M0 25 列中 k_prefix + 10 个场景常数
+（max_dls_limit, deep_min_sf_threshold, min_safe_distance, target_radius_h,
+target_radius_v, neighbor_count, w0, w1, w2, t1_radius_h）在全部 1,193 个
+(uid,k) 匹配组内恒定，标准化后零贡献；有效匹配维 = **14** 个即时量
+（x, y, z, inc, azi_sin, azi_cos, tgt_dx, tgt_dy, tgt_dz, tgt_horiz_dist,
+tgt_dist, prefix_min_sf, max_prefix_dls, remaining_md——逐列核实：每列在
+≥932/1193 个组内有变差）。25D 相对 10D 的新增信息是
 tgt_dx/dy/dz/tgt_horiz_dist（目标误差的方向分解）与 remaining 已含的冗余表达。
 
 **锚点校验**：同协议 10D 复算与 exp19 落盘逐字一致
@@ -47,7 +52,7 @@ Figure 3 的 10D 匹配**不**是人为漏维度造成的假象。
 - 不需要替换 Figure 3 主结论；可在正文/图注加一句：
   "the heavy tail is essentially unchanged when matching uses the full 25-dimensional
   M0 state instead of the 10-variable matching vector (P(|ΔJ*|>0.5σ): 0.121 vs 0.124)"。
-- 报告有效匹配维 = 15 这一点应写入方法或附录，避免"25 个自由匹配维度"的误读。
+- 报告有效匹配维 = 14（11 列在全部组内恒定）这一点应写入方法或附录，避免"25 个自由匹配维度"的误读。
 
 ## E. 文件
 

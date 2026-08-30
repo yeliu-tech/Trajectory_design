@@ -24,7 +24,7 @@ Dir: `expA_full25_aliasing/`. Verbatim exp19 protocol, matching space extended 1
 | 10D original | 6,593 | 0.0125 | 0.1236 | 0.067 (10D ref) |
 | 25D full M0 | 6,605 | 0.0122 [0.0100, 0.0141] | 0.1207 [0.1115, 0.1301] | 0.0671 |
 
-Threshold sensitivity (0.25×/0.5×/1.0×): spaces track at every threshold. Caveat stated openly: `k_prefix` + 10 scenario-constant variables are constant within each matching group (effective matching dimension 15) — a property of the state, not the protocol.
+Threshold sensitivity (0.25×/0.5×/1.0×): spaces track at every threshold. Caveat stated openly: `k_prefix` + 10 scenario-constant variables are constant in **all** 1,193 matching groups (verified column-by-column; each of the remaining 14 columns varies in ≥932/1,193 groups), so the effective matching dimension is **14** — a property of the state, not the protocol.
 
 **Supports full-25D M0 aliasing: YES.** Figure 3 stands; add one sentence citing the 25D audit (Supplement table).
 
@@ -41,7 +41,7 @@ Dir: `expB_T_decomposition/`. New models `models/sse/model_b1/b2.joblib`; anchor
 
 Contrasts: B1−B0 +3.02 [+1.07,+5.35]; B2−B0 +2.98 [+1.19,+5.26]; B3−B0 +3.59 [+1.58,+6.02]; B3−B1 +0.58 [−0.51,+1.71] (acc +0.0097, sig); B3−B2 +0.61 [−0.36,+1.53] (acc +0.0086, sig).
 
-**Case C — complementary.** Neither component dominates (rules out pure-reparameterization Case A and pure-history Case B); full T best on all metrics; components partially redundant (+3.59 < +3.02 + +2.98).
+**Case C — complementary.** Neither component dominates (rules out pure-reparameterization Case A and pure-history Case B); full T best on all metrics; components partially redundant (+3.59 < +3.02 + +2.98). Provenance detail (`expB_T_decomposition/current8_provenance.md`): current8 = 3 t2-relative + 5 t1-relative current-endpoint variables (endpoint functions only — re-parameterization), history2 = 2 t1-relative prefix-history functionals (running min ellipsoid distance / passed flag — genuine path memory, not reconstructible from the endpoint).
 
 ## 4. Exp C — Decision-level mechanism on diagnosed pairs
 
@@ -75,7 +75,7 @@ Dir: `expE_model_robustness/`. HGBR anchors exact; ExtraTrees (100 trees) and ML
 | ExtraTrees | +0.0115 [+0.0082, +0.0151] | +1.05 [−0.48, +2.53] |
 | MLP | +0.0225 [+0.0152, +0.0304] | −2.33 [−4.75, −0.29] (median 0.653→0.439) |
 
-**Conclusion**: ranking benefit is learner-robust; top-1 decision benefit is learner-dependent (MLP mean-regret reversal, tail-driven). Scope robustness claims to pairwise accuracy and report the MLP reversal explicitly.
+**Conclusion**: ranking benefit is learner-robust; top-1 decision benefit is learner-dependent (MLP mean-regret reversal, tail-driven). Caveat: all 10 MLP members stopped at the library-default `max_iter=200` unconverged (`mlp_convergence_diagnostics.json`), so the MLP arm is an undertrained reference and the reversal must not be generalised beyond this frozen setting. Scope robustness claims to pairwise accuracy and report the MLP reversal explicitly.
 
 ## 7. Highest-level interpretation (task-book §7) — FINAL
 

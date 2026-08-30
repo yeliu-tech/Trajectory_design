@@ -1,0 +1,5 @@
+{
+  "all_members_hit_max_iter": true,
+  "n_members": 10,
+  "note": "MLPRegressor library-default max_iter=200; no member converged (tol not met). Loss fell ~300-500x but was still decreasing. The MLP arm is an UNDERTRAINED reference; the MLP top-1 regret reversal must be read with this caveat."
+}

@@ -44,8 +44,9 @@ Paired scenario-level contrasts, M1 vs M0 (positive = M1 better; `paired_contras
 
 1. **Pairwise ranking accuracy: direction is consistent across all three families.** M1 > M0 everywhere, and every 95% CI excludes zero. On this metric the augmentation benefit is **not confined to HGBR**.
 2. **Mean top-1 regret: NOT consistent.** HGBR improves significantly; ExtraTrees improves in direction but the CI includes zero; **MLP reverses** — M1's mean regret is significantly *worse* (−2.33 [−4.75, −0.29]) even though its pairwise accuracy and median regret (0.439 vs 0.653) improve. The MLP M1 degradation is driven by the regret tail (mean up while median down), i.e. a small number of scenarios where the MLP misuses the extra inputs and picks a much worse top-1.
-3. Therefore the correct claim is narrow: *the T-augmentation improves pairwise ranking across all three tested learners; the top-1 decision benefit is reproduced under both tree ensembles but not under the small MLP, where the mean-regret effect reverses despite better median regret and better pairwise accuracy.*
-4. The pre-registered statement "the state augmentation benefit is not confined to HGBR" is supported **only for pairwise ranking accuracy**, and must not be extended to top-1 regret in the manuscript.
+3. **MLP convergence caveat (material).** All 10 MLP members hit the library-default `max_iter=200` without converging (`tol` not met; losses fell ~300–500× but were still decreasing — `mlp_convergence_diagnostics.csv/.json`). The MLP arm is therefore an *undertrained* reference: the MLP mean-regret reversal is a real, significant result for this frozen setting, but it characterises an unconverged model and must not be generalised to "MLPs cannot exploit the augmented state". Correct scope: *the top-1 decision benefit is learner- and training-procedure-dependent.*
+4. Therefore the correct claim is narrow: *the T-augmentation improves pairwise ranking across all three tested learners; the top-1 decision benefit is reproduced under both tree ensembles but not under the small (unconverged) MLP, where the mean-regret effect reverses despite better median regret and better pairwise accuracy.*
+5. The pre-registered statement "the state augmentation benefit is not confined to HGBR" is supported **only for pairwise ranking accuracy**, and must not be extended to top-1 regret in the manuscript.
 
 ## 5. Manuscript-ready facts
 
@@ -57,10 +58,11 @@ Paired scenario-level contrasts, M1 vs M0 (positive = M1 better; `paired_contras
 ## 6. Claim boundary
 
 - Supported: pairwise-accuracy benefit generalises across three model families.
-- NOT supported: "M1 benefit is not confined to HGBR" as a blanket statement (top-1 regret reverses under MLP); any claim that MLP/ExtraTrees are better surrogates than HGBR overall (ExtraTrees has the best raw metrics but was not tuned; this experiment is a robustness check, not a model competition).
+- NOT supported: "M1 benefit is not confined to HGBR" as a blanket statement (top-1 regret reverses under MLP); any claim that MLP/ExtraTrees are better surrogates than HGBR overall (ExtraTrees has the best raw metrics but was not tuned; this experiment is a robustness check, not a model competition); any strong conclusion from the MLP arm beyond this frozen setting (all 10 members stopped at max_iter=200 unconverged — see `mlp_convergence_diagnostics.json`).
 
 ## 7. Files
 
 - `summary.csv`, `paired_contrasts.csv`, `per_scenario_metrics.csv`, `anchor_check.json`, `train_timing.json`
+- `mlp_convergence_diagnostics.csv/.json` (per-member n_iter / loss curve summary)
 - `figure_model_robustness.png/.pdf` (600 dpi)
 - New models: `models/sse/model_e_et_m0/m1.joblib`, `model_e_mlp_m0/m1.joblib` (no frozen file touched)
