@@ -1,0 +1,14 @@
+{
+  "B0": {
+    "ref_arm": "M0",
+    "abs_diff_accuracy": 0.0,
+    "abs_diff_regret": 0.0,
+    "match": true
+  },
+  "B3": {
+    "ref_arm": "BT",
+    "abs_diff_accuracy": 0.0,
+    "abs_diff_regret": 0.0,
+    "match": true
+  }
+}

@@ -1,10 +1,13 @@
 # Trajectory Design — Supplementary Experiments
 
-Data, figures, and analysis scripts for two supplementary experiments accompanying the manuscript:
+Data, figures, and analysis scripts for the supplementary experiments accompanying the manuscript:
 
 > **History-Conditioned Candidate Retention for Repairable Initialization in Well Trajectory Optimization**
 
-The paper studies **state sufficiency** in sequential well-trajectory design: whether the state representation used by an AI-based candidate assessor contains enough task-relevant information to rank incomplete trajectory prefixes. The two experiments released here provide (A) computational-efficiency evidence for the learned assessor and (B) a post-selection specificity audit of the compact state correction.
+The paper studies **state sufficiency** in sequential well-trajectory design: whether the state representation used by an AI-based candidate assessor contains enough task-relevant information to rank incomplete trajectory prefixes. This release contains two batches:
+
+1. **Efficiency & specificity** (`exp30_`, `exp31_`): computational-efficiency evidence for the learned assessor and a post-selection specificity audit of the compact state correction.
+2. **State-sufficiency extension** (`state_sufficiency_extension/`): five verification experiments (Exp A–E) probing the aliasing diagnosis itself — full-25D matched-pair audit, correction decomposition, decision-level mechanism, high-budget label relabel, and model-family robustness. See `experiments/state_sufficiency_extension/MASTER_REPORT.md`.
 
 ## Repository layout
 
@@ -34,6 +37,14 @@ experiments/
     performance_complexity.csv        #   Performance–complexity frontier data
     audit_manifest.json               #   Frozen-protocol anchors and reused modules
     group_feature_lists.json          #   Exact G / R / T / S feature definitions
+  state_sufficiency_extension/        # Second batch: Exp A–E verification experiments
+    MASTER_REPORT.md                  #   Cross-experiment final report + interpretation
+    manuscript_implications.md        #   What the next manuscript revision should change
+    expA_full25_aliasing/             #   Full-25D M0 matched-pair aliasing audit
+    expB_T_decomposition/             #   current8 vs history2 decomposition of T
+    expC_pair_decision/               #   Decision-level ordering on diagnosed pairs
+    expD_highbudget_relabel/          #   3200-budget J* relabel of aliased pairs
+    expE_model_robustness/            #   ExtraTrees / MLP robustness of the M1 gain
 ```
 
 ## Background
@@ -79,6 +90,22 @@ The target-approach correction T (frozen by an earlier performance–complexity 
 
 ![Specificity audit](figures/figure_targeted_correction_600dpi.png)
 
+## State-sufficiency extension (Exp A–E)
+
+Five verification experiments on the frozen pipeline (full details in `experiments/state_sufficiency_extension/MASTER_REPORT.md`; all CIs are scenario-cluster bootstrap, B = 1000, seed 2024):
+
+- **Exp A — Full-25D aliasing audit.** Matching on the complete 25-variable M0 state (6,605 pairs) reproduces the 10D diagnosis almost exactly: median |ΔJ*|/σ = 0.0122 [0.0100, 0.0141], P(>0.5σ) = 0.121 [0.112, 0.130]. The heavy tail is not an artefact of the reduced matching vector.
+- **Exp B — Correction decomposition.** The 10-variable correction T splits into current8 (task-relative endpoint geometry) and history2 (two prefix-history scalars). Each alone yields a comparable significant gain over M0 (Δregret +3.02 / +2.98); the full T is best on every metric (Case C: complementary, partially redundant). history2 alone (+2 dims) recovers ~83% of the full-T regret gain.
+- **Exp C — Decision-level mechanism.** On the diagnosed matched pairs, the augmented state improves pair ordering over M0 (+4.2 points on 5,425 pairs; +2.5 points on the 797 high-aliasing pairs) and over shuffle/random controls on every stratum. The gain is broad, not concentrated in the severe tail (reported as observed).
+- **Exp D — High-budget relabel.** Relabelling 862 prefixes at 8× the production completion budget (3200 evaluations) preserves pair ordering of high-aliasing pairs in 98.5% [96.9, 100] of cases and retains the 0.5σ heavy tail (81.5% [75.7, 87.0]); matched low-aliasing controls stay at 0.5%. Attenuation is confined to the >1σ extreme tail (28.5% retention) — finite-budget noise inflates the largest gaps but does not explain the aliasing. Determinism anchor vs the earlier budget audit: 2/2 recomputed prefixes exact.
+- **Exp E — Model-family robustness.** The M1-over-M0 pairwise-accuracy benefit replicates across HGBR / ExtraTrees / MLP (+0.0263 / +0.0115 / +0.0225, all CIs exclude zero). The mean top-1 regret benefit does not replicate under the MLP (−2.33 [−4.75, −0.29]; median regret nonetheless improves) — the ranking benefit is learner-robust, the top-1 decision benefit is learner-dependent.
+
+![Full-25D aliasing](figures/figure_full25_aliasing.png)
+
+![T decomposition](figures/figure_T_decomposition.png)
+
+![High-budget relabel](figures/figure_highbudget_aliasing.png)
+
 ## Reproducibility notes
 
 - All confidence intervals use the **scenario** as the resampling unit (scenario-cluster bootstrap, B = 1000, seed 2024); candidate-level rows are never treated as independent samples.
@@ -92,7 +119,9 @@ These experiments support statements about **candidate assessment** only:
 
 - The HGBR surrogate makes completion-to-go assessment ~3 orders of magnitude cheaper — not "the whole optimizer is X× faster";
 - M1 improves ranking quality with negligible extra online cost — not "total optimization cost is reduced by X%" (downstream evaluator budgets were not measured);
-- M0+T is the best among the *tested* engineering corrections — not a universally optimal or minimal sufficient state.
+- M0+T is the best among the *tested* engineering corrections — not a universally optimal or minimal sufficient state;
+- The state-augmentation benefit is learner-robust for pairwise ranking accuracy only — the MLP top-1 regret reversal is reported in full (Exp E);
+- The aliasing heavy tail persists at 8× completion budget at the 0.5σ diagnostic threshold — but >1σ extreme-tail quantiles are partially label-noise-inflated (Exp D), and "label convergence" is not claimed.
 
 ## License
 

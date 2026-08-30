@@ -1,0 +1,18 @@
+{
+  "ExtraTrees/M0": {
+    "n_features": 25,
+    "train_sec": 1.312072515487671
+  },
+  "ExtraTrees/M1": {
+    "n_features": 35,
+    "train_sec": 1.6768336296081543
+  },
+  "MLP/M0": {
+    "n_features": 25,
+    "train_sec": 29.229202270507812
+  },
+  "MLP/M1": {
+    "n_features": 35,
+    "train_sec": 32.09049081802368
+  }
+}

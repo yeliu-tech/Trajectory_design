@@ -1,0 +1,16 @@
+{
+  "anchor": {
+    "n_ckpt_rows": 848,
+    "n_reused_exp26": 14
+  },
+  "prefix_drift": {
+    "n_prefixes": 862,
+    "median_abs_drift": 2.5471991019959743,
+    "p90_abs_drift": 227.67331105558458,
+    "frac_drift_over_noise_band": 0.691415313225058,
+    "spearman_prod_vs_3200": 0.9804762527085235
+  },
+  "budget": 3200,
+  "seed_select": 20260829,
+  "noise_band": 0.35
+}

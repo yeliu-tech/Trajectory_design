@@ -1,0 +1,22 @@
+{
+  "n_checked": 2,
+  "all_exact": true,
+  "rows": [
+    {
+      "params_sha256": "362773318bd493c3",
+      "scenario_uid": "nw_retrain_0141_crossing_easy_seed20264924",
+      "J_exp26": 125.8727065666511,
+      "J_recomputed": 125.8727065666511,
+      "exact_match": true,
+      "elapsed_sec": 334.58
+    },
+    {
+      "params_sha256": "26a4622372c632c7",
+      "scenario_uid": "nw_retrain_0151_approximately_parallel_moderate_seed20265773",
+      "J_exp26": 15.960541558337766,
+      "J_recomputed": 15.960541558337766,
+      "exact_match": true,
+      "elapsed_sec": 469.98
+    }
+  ]
+}

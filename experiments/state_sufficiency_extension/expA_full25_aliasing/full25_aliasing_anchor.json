@@ -1,0 +1,28 @@
+{
+  "anchor_10d_expected": {
+    "n_pairs": 6593,
+    "median_dJ_over_std": 0.01253025576543161,
+    "frac_over_0.5std": 0.12361595631730624
+  },
+  "anchor_10d_recomputed": {
+    "n_pairs": 6593,
+    "median_dJ_over_std": 0.01253025576543161,
+    "frac_over_0.5std": 0.12361595631730624,
+    "match": true
+  },
+  "descriptive_distance_vs_dJ": {
+    "10D_original": {
+      "spearman_pairdist_vs_dJnorm": 0.25512215450077524,
+      "p_value": 1.8229037705829096e-98,
+      "n_pairs": 6593
+    },
+    "25D_full_M0": {
+      "spearman_pairdist_vs_dJnorm": 0.23795260391782175,
+      "p_value": 1.097252168763958e-85,
+      "n_pairs": 6605
+    }
+  },
+  "note_effective_dim": "M0 25 列中 k_prefix+10 场景常数在同 (uid,k) 组内恒定，标准化后零贡献；有效匹配维=15 个即时量（10D 原口径为其子集，新增 tgt_dx/dy/dz/horiz_dist 4 个方向分解 + remaining 已含）。",
+  "seed": 2024,
+  "n_boot": 1000
+}
