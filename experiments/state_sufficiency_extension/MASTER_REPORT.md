@@ -1,6 +1,6 @@
-# MASTER REPORT — State-Sufficiency Extension Experiments (FINAL v2)
+# MASTER REPORT — State-Sufficiency Extension Experiments (FINAL v3)
 
-Status: **FINAL** — Exp A / B / C / D / E all complete. No manuscript text has been modified by this work; this report and `manuscript_implications.md` are the decision basis for the next manuscript revision.
+Status: **FINAL** — Exp A / B / C / D / E / F all complete. No manuscript text has been modified by this work; this report and `manuscript_implications.md` are the decision basis for the next manuscript revision. The v36 reviewer-response document is `v36_response.md`.
 
 Date: 2026-08-30. Root: `experiments/state_sufficiency_extension/`.
 Frozen contract held throughout: train 988 scenarios / 9,597 rows, validation 180 scenarios / 14,400 rows, independent test 36 scenarios (untouched), J* production labels unchanged, HGBR 5-member / 300-iteration / seed-2024 contract unchanged, scenario-cluster bootstrap (B=1000, seed=2024) for all CIs. No frozen output overwritten; new models only in `models/sse/`; all negative/mixed results reported as observed.
@@ -14,6 +14,7 @@ Frozen contract held throughout: train 988 scenarios / 9,597 rows, validation 18
 - **Exp C** — On the diagnosed matched pairs, fullT converts representation separation into significantly better pair ordering vs M0 (+4.2 pts overall; +2.5 pts on high-aliasing pairs) and vs shuffle/random controls on every stratum. **No decision-level amplification in the severe tail** (ceiling effect; all models > 0.92 there).
 - **Exp D** — At 8× completion budget (3200), the diagnosed aliasing **persists**: order agreement 98.5% [96.9, 100], 81.5% [75.7, 87.0] of high-aliasing pairs still exceed 0.5σ; matched low controls stay at 0.5%. Attenuation is confined to the extreme tail (28.5% retain >1.0σ): finite-budget noise inflates the largest gaps but does not explain the phenomenon. Determinism anchor vs exp26: 2/2 recomputed prefixes exact.
 - **Exp E** — The M1-over-M0 **pairwise-accuracy** benefit replicates across HGBR / ExtraTrees / MLP (+0.0263 / +0.0115 / +0.0225, all CIs exclude zero). The **top-1 regret** benefit does not replicate under MLP (significant reversal −2.33 [−4.75, −0.29]; tail effect — MLP median regret improves). Robustness claims must be scoped to ranking accuracy.
+- **Exp F** (new, answers v36 P1a) — On the **independent 36 scenarios** (frozen planner decision units, frozen models, prediction only), the M0→M1 direction **replicates on both primary metrics**: pairwise accuracy +0.0027 [−0.0118, +0.0157], mean top-1 regret −69.70 [−193.72, −1.33]. Caveats: the accuracy gain is small with CI crossing zero; the regret gain is tail-driven (median paired Δ = 0; strong stratum 241.1→57.3); the medium stratum descriptively reverses. Ranking direction is now independently confirmed — magnitude and uniformity are not.
 
 ## 2. Exp A — Full-25D M0 aliasing audit
 
@@ -77,11 +78,22 @@ Dir: `expE_model_robustness/`. HGBR anchors exact; ExtraTrees (100 trees) and ML
 
 **Conclusion**: ranking benefit is learner-robust; top-1 decision benefit is learner-dependent (MLP mean-regret reversal, tail-driven). Caveat: all 10 MLP members stopped at the library-default `max_iter=200` unconverged (`mlp_convergence_diagnostics.json`), so the MLP arm is an undertrained reference and the reversal must not be generalised beyond this frozen setting. Scope robustness claims to pairwise accuracy and report the MLP reversal explicitly.
 
+## 6b. Exp F — Independent ranking confirmation (v36 P1a)
+
+Dir: `expF_independent_confirmation/`. Frozen M0/M1 models evaluated on the frozen independent population: 1,005 exp18 planner decision units over the 36 independent scenarios (~27.9 units/scenario, ~7.1 candidates/unit). Prediction + statistics only — no training, no relabelling, no split change, no post-hoc val splitting. Feature coverage from the existing exp18 checkpoint: 100%, zero recomputation. Pre-registered direction rule (script docstring, before the run): confirmed iff Δacc > 0 and Δregret < 0.
+
+| metric | M0 | M1 | Δ(M1−M0) | 95% CI of Δ |
+|---|---:|---:|---:|---|
+| pairwise accuracy | 0.6113 | 0.6159 | +0.0027 | [−0.0118, +0.0157] |
+| mean top-1 regret | 93.22 | 23.52 | −69.70 | [−193.72, −1.33] |
+
+**Verdict: confirmed (direction replicates on both primary metrics).** Mandatory caveats (full list in the Exp F technical report §E): (i) accuracy gain small, CI crosses zero — val magnitude +0.0260 is on a different uniform-cell population and not comparable; (ii) regret gain tail-driven — median paired Δ = 0.00, 50% of scenarios improve, mean carried by the strong stratum (regret 241.1→57.3, CFO 0.386→0.311, top3 0.636→0.650, all M1-better); (iii) medium stratum descriptively reverses on regret/top3/CFO; (iv) confirms ranking direction only — terminal equal-cost null result untouched.
+
 ## 7. Highest-level interpretation (task-book §7) — FINAL
 
 **Interpretation 3: task-relative reparameterization + limited path history jointly contribute.**
 
-Evidence chain: Exp A confirms the state-aliasing diagnosis is real in the full 25D space; Exp D confirms it is not a completion-budget artefact (ordering 98.5% preserved, 0.5σ tail retained); Exp B shows the correction's benefit comes from BOTH re-expressing endpoint geometry in target-relative coordinates AND adding two genuine prefix-history scalars (Case C, neither dominates); Exp C shows the correction converts into better decisions on the diagnosed pairs; Exp E shows the ranking benefit generalises across learners while the decision-level regret benefit is learner-dependent.
+Evidence chain: Exp A confirms the state-aliasing diagnosis is real in the full 25D space; Exp D confirms it is not a completion-budget artefact (ordering 98.5% preserved, 0.5σ tail retained); Exp B shows the correction's benefit comes from BOTH re-expressing endpoint geometry in target-relative coordinates AND adding two genuine prefix-history scalars (Case C, neither dominates); Exp C shows the correction converts into better decisions on the diagnosed pairs; Exp E shows the ranking benefit generalises across learners while the decision-level regret benefit is learner-dependent; **Exp F shows the ranking direction replicates on the untouched independent population (with the caveats of §6b).**
 
 Interpretations 1 (pure missing path memory) and 2 (pure reparameterization) are each ruled out by Exp B. Interpretation 4 (evidence insufficient) is ruled out by Exp A + Exp D jointly.
 
@@ -91,6 +103,7 @@ Interpretations 1 (pure missing path memory) and 2 (pure reparameterization) are
 - **Figure 4 / feature ladder**: unchanged. Add Exp B decomposition table to the **main text** (it materially sharpens the mechanism story); per-arm training details to Appendix.
 - **Figure 5**: add Exp C decision-level results to Supplement (both populations, both tie rules); correct any main-text wording implying severe-tail decision amplification.
 - **Model robustness**: Exp E table to Supplement; robustness sentence scoped to pairwise accuracy + explicit MLP reversal.
+- **Independent confirmation**: Exp F closes the v36 "independent ranking confirmation" open question — report it as direction-replication with its caveats (small accuracy effect, tail-driven regret, medium-stratum reversal); do not quote the independent regret magnitude against validation. A compact Exp F table belongs in the main text or Supplement depending on space.
 - **Nothing else changes**: data splits, J* protocol, ladder selection rule, terminal downstream results.
 
 ## 9. Reproducibility map
@@ -102,5 +115,6 @@ Interpretations 1 (pure missing path memory) and 2 (pure reparameterization) are
 | C | `scripts/sse_expC_pair_decision.py` | `expC_pair_decision/` (accuracy/summary/figure/report) | — (uses frozen + Exp B) |
 | D | `scripts/sse_expD_highbudget_relabel.py` (stages select/pilot/collect/analyze/anchor/figure) | `expD_highbudget_relabel/` (selected_pairs/unique_prefixes/Jstar_3200_raw/comparison/summary/meta/anchor/figure/report); checkpoint `I:/hcftg_scratch/sse_expD_highbudget/` | — |
 | E | `scripts/sse_expE_model_robustness.py` | `expE_model_robustness/` (summary/contrasts/figure/report) | `models/sse/model_e_et_*/mlp_*.joblib` |
+| F | `scripts/sse_expF_independent_confirmation.py` | `expF_independent_confirmation/` (unit/scenario metrics, contrasts, val comparison, manifest, report) | — (frozen exp21 models only) |
 
-All scripts under `experiments/history_conditioned_ftg_final/scripts/`. All CIs: scenario-cluster bootstrap B=1000, seed=2024. All anchors passed (Exp A 10D exact; Exp B/E HGBR exact vs exp31; Exp D determinism 2/2 exact).
+All scripts under `experiments/history_conditioned_ftg_final/scripts/`. All CIs: scenario-cluster bootstrap B=1000, seed=2024. All anchors passed (Exp A 10D exact; Exp B/E HGBR exact vs exp31; Exp D determinism 2/2 exact; Exp F feature coverage 100% / 0 recomputation).

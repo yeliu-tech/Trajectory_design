@@ -36,6 +36,14 @@ Exp D relabelled 862 prefixes from the diagnosed pairs at 8× budget (3200). Out
 
 ## Suggested next-version structure deltas
 
-- Main text: + Exp B decomposition table (§feature ladder), + Exp A 25D sentence (§diagnosis), + Exp D persistence sentence (§diagnosis) + extreme-tail caveat (§limitations), corrected Exp C framing (§mechanism).
-- Supplement: Exp A full-25D table + sensitivity, Exp C pair-decision tables (both populations, both tie rules), Exp D figure + tables, Exp E robustness table.
+- Main text: + Exp B decomposition table (§feature ladder), + Exp A 25D sentence (§diagnosis), + Exp D persistence sentence (§diagnosis) + extreme-tail caveat (§limitations), corrected Exp C framing (§mechanism), + Exp F independent-confirmation sentence/table (below).
+- Supplement: Exp A full-25D table + sensitivity, Exp C pair-decision tables (both populations, both tie rules), Exp D figure + tables, Exp E robustness table, Exp F full contrast table (if the main text carries only the sentence).
 - No change to: data splits, J* protocol description, feature ladder selection rule, terminal downstream results.
+
+## 6. Independent ranking confirmation — RESOLVED with caveats (Exp F; answers v36 P1a)
+
+The v36 review's strongest remaining risk ("no independent confirmation of the M0→M1 ranking effect") is now addressed: frozen M0/M1 models were evaluated on the frozen independent population (1,005 exp18 planner decision units over the 36 independent scenarios), prediction only, under a pre-registered direction rule. Result: **direction replicates on both primary metrics** — pairwise accuracy +0.0027 [−0.0118, +0.0157]; mean top-1 regret −69.70 [−193.72, −1.33].
+
+Safe sentence: "On the independent scenario set — previously reserved for downstream testing and never used for diagnosis, selection, or training — the frozen augmented-state model preserves the validation ranking direction on both primary metrics (pairwise accuracy +0.0027; mean top-1 regret −69.7, bootstrap CI excluding zero), with the benefit concentrated in strong-path-dependence scenarios."
+
+Mandatory honesty (do not omit): the independent accuracy gain is small and its CI crosses zero; the regret gain is tail-driven (median paired Δ = 0, half of scenarios improve); the medium stratum descriptively reverses on regret/top-3/CFO; the independent population (planner decision units) differs from the validation uniform cells, so magnitudes must not be compared against validation numbers; this result does not alter the terminal equal-cost null finding.

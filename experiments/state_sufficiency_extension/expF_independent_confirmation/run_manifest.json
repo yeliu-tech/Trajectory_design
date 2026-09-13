@@ -1,0 +1,120 @@
+{
+  "experiment": "Exp F independent ranking confirmation (M0 vs M1)",
+  "preregistered_decision_rule": {
+    "confirmed_if": "delta_pairwise_accuracy > 0 AND delta_top1_regret < 0 (point estimates, direction match with val)",
+    "ci_role": "descriptive only; no significance-gate flip",
+    "magnitude": "descriptive only; planner decision-unit population differs from val uniform cells"
+  },
+  "verdict": "confirmed",
+  "n_units": 1005,
+  "n_scenarios": 36,
+  "n_boot": 1000,
+  "seed": 2024,
+  "inputs": {
+    "search_ckpt": {
+      "path": "I:/hcftg_scratch\\exp6_search_checkpoint.csv",
+      "sha256": "1fe1c769e6d6c59f83effb10210c43630ab754875f7a98b85553c8fa7d7b67e4"
+    },
+    "label_ckpt": {
+      "path": "I:/hcftg_scratch\\exp6_labels_checkpoint.csv",
+      "sha256": "94fb523a55571b9151a7bb3b7b1dbbc2ed82f2bca7f6893e1c3a3bdd73cb7354"
+    },
+    "feat_ckpt": {
+      "path": "I:/hcftg_scratch\\exp18_features_checkpoint.csv",
+      "sha256": "18b9eefac5be536fbc0ac6ce72200c9910207ec53ddd91d5db45932b55af1d05"
+    },
+    "models": {
+      "M0": {
+        "path": "G:\\Code_agent\\RL_Trajectory\\experiments\\history_conditioned_ftg_final\\models\\exp21\\model_m0.joblib",
+        "sha256": "1e93c4b2af36b201c1fe3c9ad85b0a17f12e180db008ab1e53a6bcdbfdbb8fe8"
+      },
+      "M1": {
+        "path": "G:\\Code_agent\\RL_Trajectory\\experiments\\history_conditioned_ftg_final\\models\\exp21\\model_m1.joblib",
+        "sha256": "c3ca6bb3c0c4f4dd7e4f5b6f0a398f47ef10a2f97347d824d371e2fe285c2b9a"
+      }
+    }
+  },
+  "obs": {
+    "M0": {
+      "pairwise_accuracy": 0.6113259668508287,
+      "regret": 93.21860203272972,
+      "top3_recall": 0.629485315274789,
+      "cfo": 0.3647735589840853
+    },
+    "M1": {
+      "pairwise_accuracy": 0.6158563535911602,
+      "regret": 23.517811675413963,
+      "top3_recall": 0.6328738049790681,
+      "cfo": 0.34937708964024755
+    }
+  },
+  "deltas": {
+    "pairwise_accuracy": 0.0026810494918229743,
+    "regret": -69.70079035731573,
+    "top3_recall": 0.003388489704279179,
+    "cfo": -0.015396469343837753
+  },
+  "delta_ci95": {
+    "pairwise_accuracy": [
+      -0.011773325534590906,
+      0.01569555843738301
+    ],
+    "regret": [
+      -193.72250439683535,
+      -1.3346489655049105
+    ],
+    "top3_recall": [
+      -0.015175658451974248,
+      0.022491418037470647
+    ],
+    "cfo": [
+      -0.07880737468237468,
+      0.04478068199778726
+    ]
+  },
+  "stratum_means": [
+    {
+      "stratum": "medium",
+      "arm": "M0",
+      "regret": 3.526981160579014,
+      "top3_recall": 0.6302250803858521,
+      "cfo": 0.3022508038585209
+    },
+    {
+      "stratum": "medium",
+      "arm": "M1",
+      "regret": 4.815478932548828,
+      "top3_recall": 0.6195069667738478,
+      "cfo": 0.41479099678456594
+    },
+    {
+      "stratum": "simple",
+      "arm": "M0",
+      "regret": 7.834034871569799,
+      "top3_recall": 0.6186359269932756,
+      "cfo": 0.40057636887608067
+    },
+    {
+      "stratum": "simple",
+      "arm": "M1",
+      "regret": 2.1207023891931653,
+      "top3_recall": 0.6311239193083573,
+      "cfo": 0.31988472622478387
+    },
+    {
+      "stratum": "strong",
+      "arm": "M0",
+      "regret": 241.05660212467376,
+      "top3_recall": 0.6359269932756965,
+      "cfo": 0.3861671469740634
+    },
+    {
+      "stratum": "strong",
+      "arm": "M1",
+      "regret": 57.33055191030165,
+      "top3_recall": 0.6503362151777137,
+      "cfo": 0.3112391930835735
+    }
+  ],
+  "elapsed_sec": 27.86744523048401
+}

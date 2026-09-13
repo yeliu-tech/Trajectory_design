@@ -1,0 +1,3 @@
+metric,independent_M0,independent_M1,independent_delta,independent_ci_lo,independent_ci_hi,val_M0_B0,val_M1_B3,val_delta,direction_consistent
+pairwise_accuracy,0.61132597,0.61585635,0.00268105,-0.01177333,0.01569556,0.79328367,0.81927178,0.02598810,True
+regret,93.21860203,23.51781168,-69.70079036,-193.72250440,-1.33464897,12.12645464,8.53480463,-3.59165001,True
