@@ -106,6 +106,16 @@ Five verification experiments on the frozen pipeline (full details in `experimen
 
 ![High-budget relabel](figures/figure_highbudget_aliasing.png)
 
+## Reviewer data assets (T1–T3)
+
+`experiments/state_sufficiency_extension/reviewer_data/` (also bundled as `reviewer_data.zip`) contains the supplementary datasets prepared for review, plus a full provenance audit of every data asset used by the paper (`DATA_PROVENANCE_AUDIT.md`, `DATA_INVENTORY.csv` — 35,438 prefix-level rows with USED / CLEAN / UNCERTAIN verdicts):
+
+- **T1 — Independent test set** (`independent_test/`): 60 newly generated scenarios (20 simple / 20 medium / 20 strong path-dependence; new seed stream and disjoint env-ID ranges, machine-checked disjoint from all train/validation/test pools) × 80 prefixes = 4,800 rows, each with the frozen production completion-to-go J* label (adaptive 200→400 protocol) and the 70-dimensional feature vector. This set has never touched training, state selection, calibration, or any previous analysis.
+- **T2 — Continuation-protocol sensitivity** (`protocol_sensitivity/`): 320 prefixes (40 validation scenarios × early/late decision units × 4 branches) evaluated under three continuation-search protocols — P0 production (B/2 Sobol, B/4 SLSQP, B/4 NSGA-II), P1 Sobol+SLSQP-dominant (B/2, B/2, 0), P2 NSGA-II-dominant (B/4, 0, 3B/4) — 960 rows with J*, evaluation counts, and best completions.
+- **T3 — Nominal target sensitivity** (`nominal_target_sensitivity/`): the same 800 prefixes scored under the registered per-scenario target tolerance and the nominal physical criterion d ≤ 1 (1,600 rows); includes `t3_tolerance_provenance.md` documenting the code-level origin of the registered tolerance (`max(1.0, radius_v/5)`).
+
+Generation scripts are in `reviewer_data/scripts/`; every directory carries a manifest with per-file SHA-256 hashes.
+
 ## Reproducibility notes
 
 - All confidence intervals use the **scenario** as the resampling unit (scenario-cluster bootstrap, B = 1000, seed 2024); candidate-level rows are never treated as independent samples.
