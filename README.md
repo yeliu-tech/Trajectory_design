@@ -121,7 +121,7 @@ Generation scripts are in `reviewer_data/scripts/`; every directory carries a ma
 - All confidence intervals use the **scenario** as the resampling unit (scenario-cluster bootstrap, B = 1000, seed 2024); candidate-level rows are never treated as independent samples.
 - The scripts in `scripts/` are the exact experiment drivers. They import the project's frozen internal modules (feature extraction, completion oracle, HGBR training), which are not part of this release; the scripts are provided for protocol transparency rather than standalone execution. All reported numbers can instead be audited directly from the CSV/JSON files in `experiments/`.
 - Nothing in the frozen protocol (M1 selection rule, train/validation split, labels, matched pairs, HGBR hyperparameters) was modified for these experiments; see `audit_manifest.json` / `run_manifest.json` for anchors and input hashes.
-- Trained model binaries (~17 MB, joblib) are not included; the summary statistics they produced are fully tabulated in the CSVs.
+- Trained model binaries (~17 MB, joblib) are not included; the summary statistics they produced are fully tabulated in the CSVs. The exact frozen feature lists used by the M0 (25D) and M1 (35D) ensembles are exported as `experiments/state_sufficiency_extension/M0_feature_list.json` and `M1_feature_list.json` (extracted verbatim from the models' `features` field), so all feature columns in the released tables can be identified without the binaries.
 
 ## Claim boundaries
 
