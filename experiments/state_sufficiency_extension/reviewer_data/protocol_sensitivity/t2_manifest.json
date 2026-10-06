@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-10-06 09:53:13",
+  "dataset": "T2 continuation-protocol sensitivity",
+  "n_scenarios": 40,
+  "n_prefixes": 320,
+  "selection_rule": "40 scenarios stratified-systematic by difficulty; per scenario 2 complete units (min-k early / max-k late), 4 branches each",
+  "protocols": {
+    "P0": "production labels reused from val_hr_labels.csv (no recompute); split (B/2,B/4,B/4)",
+    "P1": {
+      "split": "(B/2,B/2,0)",
+      "salt": "hr_t2p1"
+    },
+    "P2": {
+      "split": "(B/4,0,3B/4)",
+      "salt": "hr_t2p2"
+    }
+  },
+  "budget_rule": "adaptive 200->400, noise band 0.35, decision unit = (scenario_uid, group_id); nsga_mode=nested",
+  "files": {
+    "t2_selected_prefixes.csv": {
+      "sha256": "f991c93e05694c11c6c58c6313cb520cb9987682354119e683ddaeb2b58ac416",
+      "bytes": 39829
+    },
+    "t2_labels_checkpoint.csv": {
+      "sha256": "a3cbf1c0321db918f9ebe2504a5c166e7052efc105062d1dc9500fd3806a8485",
+      "bytes": 398199
+    },
+    "t2_protocol_results.csv": {
+      "sha256": "4a983501cf77dfad19fc48796f83d7caf83785c4b0d6722ac9dc0570c94cdd25",
+      "bytes": 376265
+    }
+  }
+}

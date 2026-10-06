@@ -1,0 +1,46 @@
+{
+  "migration_date": "2026-10-06",
+  "server": {
+    "ssh_alias": "server-210",
+    "host": "eg840@10.10.11.210",
+    "cpus": 80,
+    "mem_gb": 251,
+    "gpu": "6 x Tesla T4 (unused by this task)",
+    "project_root": "/home/eg840/LiuProject/rl_trajectory/project",
+    "venv_python": "/home/eg840/LiuProject/rl_trajectory/venv/bin/python",
+    "venv_base": "conda env rock (python 3.10.18) + --system-site-packages",
+    "venv_extra": ["pymoo==0.6.1.6 (+moocore/cma/Deprecated/autograd/alive_progress/wrapt offline wheels)", "numpy==2.2.6", "seaborn==0.13.2"],
+    "storage": "NFS 172.16.209.253:/volume1/LiuPycharmProject (6.2T free); / 100% full - no writes outside NFS"
+  },
+  "local_source": "G:/Code_agent/RL_Trajectory (DESKTOP-6RRE449)",
+  "transferred": [
+    "src/",
+    "scripts/",
+    "runtime/agent/",
+    "experiments/history_conditioned_ftg_final/ (excluding models/sse 938M)",
+    "experiments/segment_value_design/{reframe,scripts,scenarios_dual,README.md}",
+    "experiments/final_paper_completion/{scripts,results,reports}",
+    "experiments/neighboring_well_challenge/",
+    "experiments/agentic_trajectory_planning/{scripts,scenarios_agent}",
+    "experiments/state_sufficiency_extension/",
+    "neighboring_well_benchmark_v1/ (all, 121M)"
+  ],
+  "excluded": ["experiments/history_conditioned_ftg_final/models/sse (938M, not needed)", "experiments/segment_value_design/results (864M)", "experiments/final_paper_completion/config_snapshot", "__pycache__"],
+  "version_diffs": {
+    "python": {"local": "3.10.11", "server": "3.10.18"},
+    "numpy": {"local": "2.2.6", "server": "2.2.6 (pinned into venv after pickle-compat failure under 1.26.4)"},
+    "pandas": {"local": "2.2.2", "server": "2.3.3"},
+    "scipy": {"local": "1.15.3", "server": "1.15.3"},
+    "sklearn": {"local": "1.7.2", "server": "1.7.2"},
+    "pymoo": {"local": "0.6.1.6", "server": "0.6.1.6"}
+  },
+  "smoke_test": {
+    "script": "experiments/state_sufficiency_extension/reviewer_data/scripts/server_smoke.py",
+    "model_sha256": {"model_m0": "1e93c4b2af36... (match)", "model_m1": "c3ca6bb3c0c4... (match)"},
+    "e2e_case": "scenario nw_dual_val_001, prefix sha 00146d7edd80, production tier=200 nested",
+    "local_result": "J_star_cont=1.505810, evals=220, n_errors=0",
+    "server_result": "J_star_cont=1.505810, evals=220, n_errors=0",
+    "verdict": "BIT-IDENTICAL"
+  },
+  "missing_deps_fixed_during_smoke": ["runtime/agent", "experiments/agentic_trajectory_planning/scripts", "neighboring_well_benchmark_v1 non-rl_retrain pools", "seaborn", "numpy 2.x pin"]
+}

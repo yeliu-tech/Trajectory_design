@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-10-06 09:34:22",
+  "dataset": "T1 independent test (reviewer data)",
+  "n_rows": 4800,
+  "n_scenarios": 60,
+  "n_unique_states": 4800,
+  "n_rebuild_fail": 0,
+  "n_unlabeled_rebuild_ok": 0,
+  "groups_per_scenario": 20,
+  "label_protocol": "production adaptive 200->400, nsga_mode=nested, budget_split from config/adaptive_budget.json",
+  "label_salt": "hr_t1",
+  "noise_band": 0.35,
+  "feature_recipe": "features_v3.build_state_features_v3 (step_md=10.0), FEATURES_C 70 cols",
+  "files": {
+    "t1_prefix_rows.csv": {
+      "sha256": "7124739005e5484f1ff57a6399505926ab50359cbdeee6bd3070f31763e2171c",
+      "bytes": 4557802
+    },
+    "t1_labels_checkpoint.csv": {
+      "sha256": "8c2d017f895c4efb381613c36de8f1e07bc42c60ea5bf49e77fdedd5ddfa65fd",
+      "bytes": 1186946
+    },
+    "t1_features_checkpoint.csv": {
+      "sha256": "76964deed0a15907e27a3c2a2772abcfcdca0a0a882e38c03cc4440f9e74b077",
+      "bytes": 5941748
+    },
+    "t1_independent_test.csv": {
+      "sha256": "2c4eb2ae1ff9a2dbd35ebe12588fb489bed1af1decd93af0db4cd06c2765f08d",
+      "bytes": 7467465
+    },
+    "manifest.json": {
+      "sha256": "14a71882df75fc013ba71b382e620ced94201fd9ecc07253ce1adec50b0e0aee",
+      "bytes": 29237
+    }
+  }
+}

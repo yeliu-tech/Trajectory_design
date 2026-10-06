@@ -1,0 +1,349 @@
+{
+  "repo": "G:\\Code_agent\\RL_Trajectory",
+  "pools": {
+    "agent_train": {
+      "n": 470,
+      "env_id_range": [
+        2,
+        599
+      ]
+    },
+    "agent_val": {
+      "n": 120,
+      "env_id_range": [
+        6,
+        600
+      ]
+    },
+    "rl_retrain_files": {
+      "n": 590,
+      "env_id_range": [
+        2,
+        600
+      ],
+      "path": "neighboring_well_benchmark_v1/rl_retrain/scenarios"
+    },
+    "dual_train": {
+      "n": 458,
+      "sample": [
+        "nw_dual_train_001",
+        "nw_dual_train_002",
+        "nw_dual_train_003"
+      ]
+    },
+    "dual_val": {
+      "n": 60,
+      "sample": [
+        "nw_dual_val_001",
+        "nw_dual_val_002",
+        "nw_dual_val_003"
+      ]
+    },
+    "formal_72": {
+      "n": 72,
+      "sample": [
+        "nw_formal_001",
+        "nw_formal_002",
+        "nw_formal_003"
+      ]
+    },
+    "pilot_12": {
+      "n": 3,
+      "sample": [
+        "nw_pilot_008",
+        "nw_pilot_011",
+        "nw_pilot_012"
+      ]
+    },
+    "diagnostic_v0": {
+      "n": 72,
+      "sample": [
+        "nw_001",
+        "nw_002",
+        "nw_003"
+      ]
+    },
+    "independent_36": {
+      "n": 37,
+      "sample": [
+        "scenario_5000",
+        "scenario_5001",
+        "scenario_5002"
+      ]
+    },
+    "legacy_general": {
+      "n": 6,
+      "sample": [
+        "general_102",
+        "general_111",
+        "nw_dual_train_001"
+      ]
+    }
+  },
+  "labeled": {
+    "train_hr": {
+      "rows": 10000,
+      "uids": 988,
+      "composition": {
+        "nw": 518,
+        "nw_retrain_0180": 1,
+        "nw_retrain": 290,
+        "nw_retrain_0375": 1,
+        "nw_retrain_0202": 1,
+        "nw_retrain_0040": 1,
+        "nw_retrain_0357": 1,
+        "nw_retrain_0396": 1,
+        "nw_retrain_0043": 1,
+        "nw_retrain_0352": 1,
+        "nw_retrain_0429": 1,
+        "nw_retrain_0211": 1,
+        "nw_retrain_0552": 1,
+        "nw_retrain_0088": 1,
+        "nw_retrain_0358": 1,
+        "nw_retrain_0597": 1,
+        "nw_retrain_0032": 1,
+        "nw_retrain_0093": 1,
+        "nw_retrain_0521": 1,
+        "nw_retrain_0169": 1,
+        "nw_retrain_0360": 1,
+        "nw_retrain_0381": 1,
+        "nw_retrain_0394": 1,
+        "nw_retrain_0454": 1,
+        "nw_retrain_0065": 1,
+        "nw_retrain_0374": 1,
+        "nw_retrain_0286": 1,
+        "nw_retrain_0355": 1,
+        "nw_retrain_0207": 1,
+        "nw_retrain_0238": 1,
+        "nw_retrain_0223": 1,
+        "nw_retrain_0557": 1,
+        "nw_retrain_0159": 1,
+        "nw_retrain_0509": 1,
+        "nw_retrain_0283": 1,
+        "nw_retrain_0348": 1,
+        "nw_retrain_0231": 1,
+        "nw_retrain_0069": 1,
+        "nw_retrain_0305": 1,
+        "nw_retrain_0492": 1,
+        "nw_retrain_0318": 1,
+        "nw_retrain_0464": 1,
+        "nw_retrain_0064": 1,
+        "nw_retrain_0328": 1,
+        "nw_retrain_0414": 1,
+        "nw_retrain_0504": 1,
+        "nw_retrain_0125": 1,
+        "nw_retrain_0112": 1,
+        "nw_retrain_0049": 1,
+        "nw_retrain_0285": 1,
+        "nw_retrain_0208": 1,
+        "nw_retrain_0054": 1,
+        "nw_retrain_0209": 1,
+        "nw_retrain_0443": 1,
+        "nw_retrain_0367": 1,
+        "nw_retrain_0057": 1,
+        "nw_retrain_0324": 1,
+        "nw_retrain_0236": 1,
+        "nw_retrain_0444": 1,
+        "nw_retrain_0260": 1,
+        "nw_retrain_0074": 1,
+        "nw_retrain_0245": 1,
+        "nw_retrain_0212": 1,
+        "nw_retrain_0503": 1,
+        "nw_retrain_0031": 1,
+        "nw_retrain_0037": 1,
+        "nw_retrain_0579": 1,
+        "nw_retrain_0529": 1,
+        "nw_retrain_0294": 1,
+        "nw_retrain_0482": 1,
+        "nw_retrain_0137": 1,
+        "nw_retrain_0422": 1,
+        "nw_retrain_0003": 1,
+        "nw_retrain_0123": 1,
+        "nw_retrain_0327": 1,
+        "nw_retrain_0402": 1,
+        "nw_retrain_0274": 1,
+        "nw_retrain_0485": 1,
+        "nw_retrain_0210": 1,
+        "nw_retrain_0051": 1,
+        "nw_retrain_0447": 1,
+        "nw_retrain_0062": 1,
+        "nw_retrain_0433": 1,
+        "nw_retrain_0146": 1,
+        "nw_retrain_0042": 1,
+        "nw_retrain_0194": 1,
+        "nw_retrain_0574": 1,
+        "nw_retrain_0442": 1,
+        "nw_retrain_0484": 1,
+        "nw_retrain_0050": 1,
+        "nw_retrain_0098": 1,
+        "nw_retrain_0393": 1,
+        "nw_retrain_0463": 1,
+        "nw_retrain_0280": 1,
+        "nw_retrain_0132": 1,
+        "nw_retrain_0007": 1,
+        "nw_retrain_0410": 1,
+        "nw_retrain_0241": 1,
+        "nw_retrain_0379": 1,
+        "nw_retrain_0522": 1,
+        "nw_retrain_0013": 1,
+        "nw_retrain_0106": 1,
+        "nw_retrain_0053": 1,
+        "nw_retrain_0449": 1,
+        "nw_retrain_0461": 1,
+        "nw_retrain_0572": 1,
+        "nw_retrain_0383": 1,
+        "nw_retrain_0337": 1,
+        "nw_retrain_0281": 1,
+        "nw_retrain_0334": 1,
+        "nw_retrain_0377": 1,
+        "nw_retrain_0584": 1,
+        "nw_retrain_0475": 1,
+        "nw_retrain_0388": 1,
+        "nw_retrain_0527": 1,
+        "nw_retrain_0066": 1,
+        "nw_retrain_0073": 1,
+        "nw_retrain_0320": 1,
+        "nw_retrain_0107": 1,
+        "nw_retrain_0559": 1,
+        "nw_retrain_0063": 1,
+        "nw_retrain_0598": 1,
+        "nw_retrain_0217": 1,
+        "nw_retrain_0188": 1,
+        "nw_retrain_0226": 1,
+        "nw_retrain_0391": 1,
+        "nw_retrain_0152": 1,
+        "nw_retrain_0117": 1,
+        "nw_retrain_0026": 1,
+        "nw_retrain_0568": 1,
+        "nw_retrain_0411": 1,
+        "nw_retrain_0417": 1,
+        "nw_retrain_0590": 1,
+        "nw_retrain_0262": 1,
+        "nw_retrain_0311": 1,
+        "nw_retrain_0535": 1,
+        "nw_retrain_0018": 1,
+        "nw_retrain_0364": 1,
+        "nw_retrain_0138": 1,
+        "nw_retrain_0173": 1,
+        "nw_retrain_0460": 1,
+        "nw_retrain_0036": 1,
+        "nw_retrain_0439": 1,
+        "nw_retrain_0271": 1,
+        "nw_retrain_0563": 1,
+        "nw_retrain_0126": 1,
+        "nw_retrain_0366": 1,
+        "nw_retrain_0499": 1,
+        "nw_retrain_0219": 1,
+        "nw_retrain_0333": 1,
+        "nw_retrain_0594": 1,
+        "nw_retrain_0216": 1,
+        "nw_retrain_0418": 1,
+        "nw_retrain_0025": 1,
+        "nw_retrain_0490": 1,
+        "nw_retrain_0435": 1,
+        "nw_retrain_0012": 1,
+        "nw_retrain_0215": 1,
+        "nw_retrain_0157": 1,
+        "nw_retrain_0222": 1,
+        "nw_retrain_0047": 1,
+        "nw_retrain_0300": 1,
+        "nw_retrain_0178": 1,
+        "nw_retrain_0087": 1,
+        "nw_retrain_0011": 1,
+        "nw_retrain_0298": 1,
+        "nw_retrain_0370": 1,
+        "nw_retrain_0200": 1,
+        "nw_retrain_0593": 1,
+        "nw_retrain_0382": 1,
+        "nw_retrain_0488": 1,
+        "nw_retrain_0536": 1,
+        "nw_retrain_0528": 1,
+        "nw_retrain_0124": 1,
+        "nw_retrain_0302": 1,
+        "nw_retrain_0028": 1,
+        "nw_retrain_0038": 1,
+        "nw_retrain_0376": 1,
+        "nw_retrain_0561": 1,
+        "nw_retrain_0198": 1,
+        "nw_retrain_0145": 1,
+        "nw_retrain_0539": 1
+      },
+      "path": "experiments/history_conditioned_ftg_final/data/train_hr_labels.csv"
+    },
+    "val_hr": {
+      "rows": 14400,
+      "uids": 180,
+      "path": "experiments/history_conditioned_ftg_final/data/val_hr_labels.csv"
+    },
+    "exp26_convergence": {
+      "rows": 1149,
+      "unique_prefixes": 222,
+      "uids": 134,
+      "budgets": [
+        200,
+        400,
+        800,
+        1600,
+        3200,
+        6000
+      ],
+      "path": "experiments/history_conditioned_ftg_final/results/exp26_label_convergence.csv"
+    },
+    "expD_highbudget": {
+      "unique_prefixes": 862,
+      "uids": 121,
+      "path": "experiments/state_sufficiency_extension/expD_highbudget_relabel/unique_prefixes.csv"
+    },
+    "exp30_efficiency": {
+      "rows": 270,
+      "uids": 18,
+      "path": "results\\exp30_exp31_supplementary_20260817\\exp30_efficiency\\candidate_timing_raw.csv"
+    }
+  },
+  "checks": {
+    "hr_name_overlap": [],
+    "retrain_env_id_overlap_988_180": [],
+    "exp26_uids_not_in_val180": [],
+    "expD_uids_not_in_val180": [],
+    "agent_env_ids_minus_rlfiles": [],
+    "rlfiles_minus_agent_env_ids": [],
+    "agent_train_env_overlap_val": [],
+    "independent_36_disjointness_registered": true,
+    "independent_36_env_ranges": {
+      "simple": [
+        5000,
+        5011
+      ],
+      "coupled": [
+        6000,
+        6071
+      ]
+    },
+    "formal_72_not_in_hr_train": [
+      "nw_formal_002",
+      "nw_formal_005",
+      "nw_formal_006",
+      "nw_formal_016",
+      "nw_formal_019",
+      "nw_formal_021",
+      "nw_formal_032",
+      "nw_formal_033",
+      "nw_formal_036",
+      "nw_formal_040",
+      "nw_formal_041",
+      "nw_formal_061"
+    ],
+    "formal_72_12_usage_in_downstream": {
+      "exp15_raw_cells.csv": [],
+      "exp16_replay_results.csv": []
+    },
+    "pilot_12_in_pipeline": [],
+    "diagnostic_v0_in_pipeline": [],
+    "legacy_general_in_hr_pools": [
+      "nw_dual_train_001",
+      "nw_dual_train_003",
+      "nw_dual_train_004",
+      "nw_dual_train_007"
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-10-06 10:02:25",
+  "dataset": "T3 nominal target sensitivity (d<=1)",
+  "n_scenarios": 40,
+  "n_prefixes": 800,
+  "selection_rule": "40 scenarios stratified-systematic by difficulty (same rule as T2); per scenario 5 complete units at k-prefix quantiles 0/25/50/75/100%",
+  "registered_rule": "target_tolerance = max(1.0, radius_v/5.0) (a10h_v22c_multi_scenario_dataset.py:66); labels reused from val_hr_labels.csv",
+  "nominal_rule": "evaluator.target_tolerance := 1.0 override; production split (B/2,B/4,B/4); adaptive 200->400; salt hr_t3",
+  "files": {
+    "t3_selected_prefixes.csv": {
+      "sha256": "fa435834e6e4982aec752f46f386bfc56fced1eec4d5463b6f1ce7d8988eae8e",
+      "bytes": 96267
+    },
+    "t3_labels_checkpoint.csv": {
+      "sha256": "317bd293ad57d43abc6ed405f61de63db06ff026df2bd8e497227c3164c3bf36",
+      "bytes": 182241
+    },
+    "t3_nominal_results.csv": {
+      "sha256": "60653973c86f36df594f2909539b483d7ec7bb0875b9d58fa0bd3e6543abea77",
+      "bytes": 335370
+    },
+    "t3_tolerance_provenance.md": {
+      "sha256": "dfb9472976a928ad5f571710e18137e85ea4a9faca778355c7378148531938e2",
+      "bytes": 2108
+    }
+  }
+}

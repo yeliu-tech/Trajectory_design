@@ -118,3 +118,14 @@ Interpretations 1 (pure missing path memory) and 2 (pure reparameterization) are
 | F | `scripts/sse_expF_independent_confirmation.py` | `expF_independent_confirmation/` (unit/scenario metrics, contrasts, val comparison, manifest, report) | — (frozen exp21 models only) |
 
 All scripts under `experiments/history_conditioned_ftg_final/scripts/`. All CIs: scenario-cluster bootstrap B=1000, seed=2024. All anchors passed (Exp A 10D exact; Exp B/E HGBR exact vs exp31; Exp D determinism 2/2 exact; Exp F feature coverage 100% / 0 recomputation).
+
+## 10. Reviewer data assets (2026-10-06)
+
+审稿补充数据统一在 `reviewer_data/`（打包 `reviewer_data.zip`）：
+
+- `DATA_PROVENANCE_AUDIT.md` + `DATA_INVENTORY.csv`：全部数据资产来源审计与 prefix 级明细（35,438 行）；
+- `independent_test/`（T1）：60 个全新独立场景 × 80 prefix = 4,800 行，production J\* 标签 + 70D 特征，CLEAN by construction（与全部历史池机检不相交）；
+- `protocol_sensitivity/`（T2）：320 prefix × 3 continuation 协议（P0 production / P1 Sobol+SLSQP 主导 / P2 NSGA-II 主导）= 960 行；
+- `nominal_target_sensitivity/`（T3）：800 prefix × 2 靶区口径（registered / nominal d≤1）= 1,600 行，含 registered tolerance 来源审计 `t3_tolerance_provenance.md`。
+
+生成脚本在 `reviewer_data/scripts/`，全部计算在服务器 10.10.11.210 完成，manifest 含逐文件 sha256。
